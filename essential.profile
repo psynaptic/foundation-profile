@@ -7,29 +7,37 @@ function essential_profile_modules() {
 	return array(
 		// Core modules.
 		'block', 'dblog', 'filter', 'node', 'taxonomy', 'menu', 'system', 'user', 'path',
-		// Contrib
-		'admin_menu', 'features', 'views', 'views_ui',
-		'context', 'context_ui', 'context_contrib',
-		// CTools.
+		// CTools, required by many modules.
 		'ctools',
-		// Date
-		'date_api',
-
-		// Image
-		'imageapi', 'imageapi_gd', 'imagecache', 'imagecache_ui',
 		// Token
 		'token',
+		// Admin menu
+		'admin_menu', 
+		// Admin role
+		'adminrole',
+		// Features
+    'features', 
+    // Views
+		'views', 'views_ui',
+		// Context
+		'context', 'context_ui', 'context_contrib',
+
+		// Image related modules.
+		'imageapi', 'imageapi_gd', 'imagecache', 'imagecache_ui',
 		
-		// Block edit links
-		'block_edit',
-		// Compact forms
-		'compact_forms',
+		// Vertical tabs
+		'vertical_tabs',
 		
 		// Development related modules.
 		'devel', 'devel_generate',
+		'coder', 'install_profile_api', 'cvs_deploy',
 		
 		// Node export to be able to import initial node content.
 		'node_export',
+		// Node clone
+		'clone',
+		'transliteration',
+		'poormanscron',
 	);
 }
 
@@ -38,7 +46,18 @@ function essential_profile_modules() {
  */
 function _essential_secondary_modules() {
 	return array(
-		);
+	  // Panels
+	  'panels', 'panels_mini',
+	  // Webform
+	  'webform',
+	  // CCK
+	  'content', 
+	    // Submodules offered by CCK
+	    'text', 'number', 'nodereference',
+	    // CCK modules from contrib.
+	    'link', 'email', 'filefield', 'filefield_paths', 'imagefield',
+	  // Custom features come below.
+	);
 }
 
 function essential_profile_details() {
@@ -87,7 +106,7 @@ function essential_profile_tasks(&$task, $url) {
 		$batch['finished'] = '_essential_profile_batch_finished';
 	 	$batch['error_message'] = st('The installation has encountered an error.');
 	 	
-	 	// Start a batch, switch to 'intranet-modules-batch' task. We need to
+	 	// Start a batch, switch to 'essential-modules-batch' task. We need to
 	 	// set the variable here, because batch_process() redirects.
 	 	variable_set('install_task', 'essential-modules-batch');
 	 	batch_set($batch);
@@ -99,7 +118,6 @@ function essential_profile_tasks(&$task, $url) {
 	if ('profile-configure' == $task) {
 	 	$batch['title'] = st('Configuring @drupal', array('@drupal' => drupal_install_profile_name()));
  		$batch['operations'][] = array('_essential_configure', array());
-	 	$batch['operations'][] = array('_essential_configure_check', array());
 	 	$batch['finished'] = '_essential_configure_finished';
 	 	variable_set('install_task', 'essential-configure-batch');
 	 	batch_set($batch);
@@ -109,6 +127,10 @@ function essential_profile_tasks(&$task, $url) {
 	}	
 	return $output;
 }
+
+/**
+ * Batch callbacks for different installation stages.
+ */
 
 /**
  * Move on to the configuration stage by setting the task.
@@ -121,12 +143,6 @@ function _essential_profile_batch_finished($success, $results) {
  * First stage configuration, eg to create a taxonomy.
  */
 function _essential_configure($success, $results) {
-}
-
-/**
- * Second stage configuration.
- */
-function _essential_configure_check($success, $results) {
 	node_access_rebuild();
 	_block_rehash(); // Populate the blocks table so we can update.
 	
@@ -135,4 +151,11 @@ function _essential_configure_check($success, $results) {
 
 	db_query("UPDATE {blocks} SET status = 0, region = ''"); // disable all DB blocks
 	variable_set('theme_default', 'clean');
+}
+
+/**
+ * Final stage of the configuration.
+ */
+function _essential_configure_finished($success, $results) {
+  variable_set('install_task', 'profile-finished');
 }
