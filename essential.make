@@ -1,11 +1,6 @@
-
-
 ; Syntax: http://bit.ly/7rp6vM
 
-core = "6.x"
-projects[pressflow][type] = "core"
-projects[pressflow][download][type] = "git"
-projects[pressflow][download][url] = git://github.com/bigmack83/pressflow-6.git
+; Essential site building starting kit.
 
 ; Themes
 projects[clean][subdir] = contrib
@@ -16,6 +11,7 @@ projects[clean_starter][download][type] = "git"
 projects[clean_starter][download][url] = "git://89.145.97.251/clean_starter"
 
 ; Modules
+; Notes: admin_menu v3 removes blocks from the /admin path.˜
 projects[cck][subdir] = contrib
 projects[cck][install_path] = sites/all
 projects[views][subdir] = contrib
@@ -36,7 +32,6 @@ projects[node_export][subdir] = contrib
 projects[node_export][install_path] = sites/all
 projects[admin_menu][subdir] = contrib
 projects[admin_menu][install_path] = sites/all
-projects[admin_menu][version] = 3.0-alpha3
 projects[adminrole][subdir] = contrib
 projects[adminrole][install_path] = sites/all
 projects[webform][subdir] = contrib
