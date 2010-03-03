@@ -92,8 +92,13 @@ function system_form_install_select_profile_form_alter(&$form, $form_state) {
 }
 
 function system_form_install_configure_form_alter(&$form, $form_state) {
- 	$form['site_information']['site_name']['#default_value'] = 'Essential'; // TODO change this
+  $form['site_information']['#collapsible'] = TRUE;
+ 	$form['site_information']['#collapsed'] = TRUE;
+ 	$form['site_information']['site_name']['#default_value'] = 'Essential'; // TODO change this depending on project
  	$form['site_information']['site_mail']['#default_value'] = 'admin@'. $_SERVER['HTTP_HOST'];
+  // Collapse the fieldset so we don't need to scroll to the submit button.
+ 	$form['admin_account']['#collapsible'] = TRUE;
+ 	$form['admin_account']['#collapsed'] = TRUE;
  	$form['admin_account']['account']['name']['#default_value'] = 'admin';
  	$form['admin_account']['account']['mail']['#default_value'] = 'admin@'. $_SERVER['HTTP_HOST'];
 	$form['admin_account']['account']['pass'] = array(
@@ -208,15 +213,28 @@ function _essential_configure($success, $results) {
   // Add both user groups the permission to access content.
   install_add_permissions(1, 'access_content');
   install_add_permissions(2, 'access_content');
-  
-	node_access_rebuild();
-	_install_node_types();
-	
-	_block_rehash(); // Populate the blocks table so we can update.
-	drupal_flush_all_caches(); // Rebuild key tables/caches
 
-	db_query("UPDATE {blocks} SET status = 0, region = ''"); // disable all DB blocks
-	variable_set('theme_default', 'clean_starter');
+  $page_properties = array(
+    'type' => 'page',
+    'name' => 'Page',
+    'description' => st("A static site <em>page</em> is a simple method for creating and 
+      displaying information that rarely changes, such as an \"About us\" section of a website. 
+      By default, a <em>page</em> entry does not allow visitor comments and is not featured on the site's initial home page."),
+  );
+	install_add_content_type($page_properties);
+	// Default page to not be promoted and have comments disabled.
+  variable_set('node_options_page', array('status'));
+  
+  // Don't display date and author information for page nodes by default.
+  $theme_settings = variable_get('theme_settings', array());
+  $theme_settings['toggle_node_info_page'] = FALSE;
+  variable_set('comment_page', COMMENT_NODE_DISABLED);
+	variable_set('theme_settings', $theme_settings);
+
+	install_enable_theme('clean');
+	install_enable_theme('clean_starter');
+	install_default_theme('clean_starter');
+	db_query("UPDATE {blocks} SET status = 0, region = ''"); // Disable all DB blocks that got initialized until now.
 }
 
 /**
@@ -224,38 +242,4 @@ function _essential_configure($success, $results) {
  */
 function _essential_configure_finished($success, $results) {
   variable_set('install_task', 'profile-finished');
-}
-
-/**
- * Declaring the page content type manually.
- */
-function _install_node_types() {
-  $types = array(
-    array(
-      'type' => 'page',
-      'name' => st('Page'),
-      'module' => 'node',
-      'description' => st("A static site <em>page</em> is a simple method for creating and 
-        displaying information that rarely changes, such as an \"About us\" section of a website. 
-        By default, a <em>page</em> entry does not allow visitor comments and is not featured on the site's initial home page."),
-      'custom' => TRUE,
-      'modified' => TRUE,
-      'locked' => FALSE,
-      'help' => '',
-      'min_word_count' => '',
-    ),
-  );
-  foreach ($types as $type) {
-    $type = (object) _node_type_set_defaults($type);
-    node_type_save($type);
-  }
-
-  // Default page to not be promoted and have comments disabled.
-  variable_set('node_options_page', array('status'));
-  
-  // Don't display date and author information for page nodes by default.
-  $theme_settings = variable_get('theme_settings', array());
-  $theme_settings['toggle_node_info_page'] = FALSE;
-  variable_set('comment_page', COMMENT_NODE_DISABLED);
-	variable_set('theme_settings', $theme_settings); 
 }
