@@ -107,6 +107,8 @@ function system_form_install_configure_form_alter(&$form, $form_state) {
 
 // "Inspired" by open atrium.
 function essential_profile_tasks(&$task, $url) {
+  // Install profile api requires including the list of modules we install.
+  install_include(essential_profile_modules()); 
 	$output = '';
 	// We are running a batch task for this profile so basically do nothing and return page
 	if (in_array($task, array('essential-modules-batch', 'essential-configure-batch'))) {
@@ -204,8 +206,8 @@ function _essential_configure($success, $results) {
   variable_set('site_offline_message', 'Essential is currently under maintenance. We should be back shortly. Thank you for your patience.');
   
   // Add both user groups the permission to access content.
-  install_add_permission(1, 'access_content');
-  install_add_permission(2, 'access_content');
+  install_add_permissions(1, 'access_content');
+  install_add_permissions(2, 'access_content');
   
 	node_access_rebuild();
 	_install_node_types();
