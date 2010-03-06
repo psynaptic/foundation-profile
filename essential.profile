@@ -56,14 +56,7 @@ function essential_profile_modules() {
 		'clone',
 		'transliteration',
 		'poormanscron',
-	);
-}
 
-/**
- * Modules the profile installs in batch processes.
- */
-function _essential_secondary_modules() {
-	return array(
 	  // Panels
 	  'panels', 'panels_mini',
 	  // Webform
@@ -74,6 +67,14 @@ function _essential_secondary_modules() {
 	    'text', 'number', 'nodereference',
 	    // CCK modules from contrib.
 	    'link', 'email', 'filefield', 'filefield_paths', 'imagefield',
+	);
+}
+
+/**
+ * Modules required specifically for the project and features.
+ */
+function _essential_secondary_modules() {
+	return array(
 	  // Custom features come below.
 	);
 }
