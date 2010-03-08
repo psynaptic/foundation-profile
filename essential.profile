@@ -27,6 +27,15 @@ function essential_profile_modules() {
 		'block', 'dblog', 'filter', 'node', 'taxonomy', 'menu', 'system', 'user', 'path',
 		// CTools, required by many modules.
 		'ctools',
+    // Exportable variables
+    'strongarm',
+		// Node export to be able to import initial node content.
+		'node_export',
+		// Node clone
+		'clone',
+    // Boxes (expotable blocks)
+    'boxes',
+
 		// Token
 		'token',
 		// Admin menu
@@ -50,13 +59,13 @@ function essential_profile_modules() {
 		'devel', 'devel_generate',
 		'coder', 'install_profile_api', 'cvs_deploy',
 		
-		// Node export to be able to import initial node content.
-		'node_export',
-		// Node clone
-		'clone',
 		'transliteration',
 		'poormanscron',
 
+    // Pathauto
+    'pathauto',
+    // Advanced help
+    'advanced_help',
 	  // Panels
 	  'panels', 'panels_mini',
 	  // Webform
@@ -64,7 +73,7 @@ function essential_profile_modules() {
 	  // CCK
 	  'content', 
 	    // Submodules offered by CCK
-	    'text', 'number', 'nodereference',
+	    'text', 'number', 'nodereference', 'optionwidgets',
 	    // CCK modules from contrib.
 	    'link', 'email', 'filefield', 'filefield_paths', 'imagefield',
 	);
@@ -170,7 +179,7 @@ function _essential_module_batch_finished($success, $results) {
 /**
  * First stage configuration, eg to create a taxonomy.
  */
-function _essential_configure($success, $results) {
+function _essential_configure() {
   // Making sure that we have full error reporting, log and on screen.
   variable_set('error_level', '1');
   
@@ -212,8 +221,8 @@ function _essential_configure($success, $results) {
   variable_set('site_offline_message', 'Essential is currently under maintenance. We should be back shortly. Thank you for your patience.');
   
   // Add both user groups the permission to access content.
-  install_add_permissions(1, 'access_content');
-  install_add_permissions(2, 'access_content');
+  install_add_permissions(1, array('access_content'));
+  install_add_permissions(2, array('access_content'));
 
   $page_properties = array(
     'type' => 'page',

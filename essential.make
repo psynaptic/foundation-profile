@@ -13,31 +13,11 @@ projects[clean_starter][download][type] = "git"
 projects[clean_starter][download][url] = "git://89.145.97.251/clean_starter"
 
 ; Modules
-; Notes: admin_menu v3 removes blocks from the /admin path.˜
+; Notes: admin_menu v3 removes blocks from the /admin path.
+
+; Content
 projects[cck][subdir] = contrib
 projects[cck][install_path] = sites/all
-projects[views][subdir] = contrib
-projects[views][install_path] = sites/all
-projects[features][subdir] = contrib
-projects[features][install_path] = sites/all
-projects[ctools][subdir] = contrib
-projects[ctools][install_path] = sites/all
-projects[context][subdir] = contrib
-projects[context][install_path] = sites/all
-projects[panels][subdir] = contrib
-projects[panels][install_path] = sites/all
-projects[token][subdir] = contrib
-projects[token][install_path] = sites/all
-projects[node_clone][subdir] = contrib
-projects[node_clone][install_path] = sites/all
-projects[node_export][subdir] = contrib
-projects[node_export][install_path] = sites/all
-projects[admin_menu][subdir] = contrib
-projects[admin_menu][install_path] = sites/all
-projects[adminrole][subdir] = contrib
-projects[adminrole][install_path] = sites/all
-projects[webform][subdir] = contrib
-projects[webform][install_path] = sites/all
 projects[filefield][subdir] = contrib
 projects[filefield][install_path] = sites/all
 projects[filefield_paths][subdir] = contrib
@@ -52,12 +32,44 @@ projects[link][subdir] = contrib
 projects[link][install_path] = sites/all
 projects[email][subdir] = contrib
 projects[email][install_path] = sites/all
+projects[node_clone][subdir] = contrib
+projects[node_clone][install_path] = sites/all
+projects[node_export][subdir] = contrib
+projects[node_export][install_path] = sites/all
+projects[webform][subdir] = contrib
+projects[webform][install_path] = sites/all
+
+projects[token][subdir] = contrib
+projects[token][install_path] = sites/all
+projects[pathauto][subdir] = contrib
+projects[pathauto][install_path] = sites/all
+
+projects[advanced_help][subdir] = contrib
+projects[advanced_help][install_path] = sites/all
+projects[views][subdir] = contrib
+projects[views][install_path] = sites/all
+projects[features][subdir] = contrib
+projects[features][install_path] = sites/all
+projects[ctools][subdir] = contrib
+projects[ctools][install_path] = sites/all
+projects[context][subdir] = contrib
+projects[context][install_path] = sites/all
+projects[panels][subdir] = contrib
+projects[panels][install_path] = sites/all
 projects[transliteration][subdir] = contrib
 projects[transliteration][install_path] = sites/all
 projects[poormanscron][subdir] = contrib
 projects[poormanscron][install_path] = sites/all
 projects[vertical_tabs][subdir] = contrib
 projects[vertical_tabs][install_path] = sites/all
+projects[boxes][subdir] = contrib
+projects[boxes][install_path] = sites/all
+projects[admin_menu][subdir] = contrib
+projects[admin_menu][install_path] = sites/all
+projects[adminrole][subdir] = contrib
+projects[adminrole][install_path] = sites/all
+projects[strongarm][subdir] = contrib
+projects[strongarm][install_path] = sites/all
 
 projects[devel][subdir] = developer
 projects[devel][install_path] = sites/all
