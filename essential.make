@@ -12,8 +12,17 @@ projects[clean_starter][install_path] = sites/all
 projects[clean_starter][download][type] = "git"
 projects[clean_starter][download][url] = "git://89.145.97.251/clean_starter"
 
+; Admin themes
+projects[tao][download][type] = "git"
+projects[tao][download][url] = "git://github.com/developmentseed/tao.git"
+projects[rubik][download][type] = "git"
+projects[rubik][download][url] = "git://github.com/developmentseed/rubik.git"
+
 ; Modules
 ; Notes: admin_menu v3 removes blocks from the /admin path.
+
+projects[admin][subdir] = contrib
+projects[admin][version] = 6.x-2.x
 
 ; Content
 projects[cck][subdir] = contrib

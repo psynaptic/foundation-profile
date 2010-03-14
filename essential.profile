@@ -76,6 +76,8 @@ function essential_profile_modules() {
 	    'text', 'number', 'nodereference', 'optionwidgets',
 	    // CCK modules from contrib.
 	    'link', 'email', 'filefield', 'filefield_paths', 'imagefield',
+    // Admin back-end
+    'admin',
 	);
 }
 
@@ -84,6 +86,8 @@ function essential_profile_modules() {
  */
 function _essential_secondary_modules() {
 	return array(
+    // The essential feature.
+    'essential',
 	  // Custom features come below.
 	);
 }
