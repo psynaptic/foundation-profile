@@ -19,10 +19,15 @@ projects[rubik][download][type] = "git"
 projects[rubik][download][url] = "git://github.com/developmentseed/rubik.git"
 
 ; Modules
-; Notes: admin_menu v3 removes blocks from the /admin path.
 
+; Administration
+; Note: admin_menu v3 removes blocks from the /admin path.
 projects[admin][subdir] = contrib
 projects[admin][version] = 6.x-2.x
+projects[admin_menu][subdir] = contrib
+projects[admin_menu][install_path] = sites/all
+projects[adminrole][subdir] = contrib
+projects[adminrole][install_path] = sites/all
 
 ; Content
 projects[cck][subdir] = contrib
@@ -47,39 +52,40 @@ projects[node_export][subdir] = contrib
 projects[node_export][install_path] = sites/all
 projects[webform][subdir] = contrib
 projects[webform][install_path] = sites/all
+projects[panels][subdir] = contrib
+projects[panels][install_path] = sites/all
+projects[boxes][subdir] = contrib
+projects[boxes][install_path] = sites/all
+projects[views][subdir] = contrib
+projects[views][install_path] = sites/all
 
+; Functional modules (improving usability, SEO etc)
+projects[advanced_help][subdir] = contrib
+projects[advanced_help][install_path] = sites/all
 projects[token][subdir] = contrib
 projects[token][install_path] = sites/all
 projects[pathauto][subdir] = contrib
 projects[pathauto][install_path] = sites/all
-
-projects[advanced_help][subdir] = contrib
-projects[advanced_help][install_path] = sites/all
-projects[views][subdir] = contrib
-projects[views][install_path] = sites/all
-projects[features][subdir] = contrib
-projects[features][install_path] = sites/all
-projects[ctools][subdir] = contrib
-projects[ctools][install_path] = sites/all
-projects[context][subdir] = contrib
-projects[context][install_path] = sites/all
-projects[panels][subdir] = contrib
-projects[panels][install_path] = sites/all
+projects[blocks404][subdir] = contrib
+projects[blocks404][install_path] = sites/all
 projects[transliteration][subdir] = contrib
 projects[transliteration][install_path] = sites/all
 projects[poormanscron][subdir] = contrib
 projects[poormanscron][install_path] = sites/all
 projects[vertical_tabs][subdir] = contrib
 projects[vertical_tabs][install_path] = sites/all
-projects[boxes][subdir] = contrib
-projects[boxes][install_path] = sites/all
-projects[admin_menu][subdir] = contrib
-projects[admin_menu][install_path] = sites/all
-projects[adminrole][subdir] = contrib
-projects[adminrole][install_path] = sites/all
+
+; API modules
+projects[ctools][subdir] = contrib
+projects[ctools][install_path] = sites/all
 projects[strongarm][subdir] = contrib
 projects[strongarm][install_path] = sites/all
+projects[features][subdir] = contrib
+projects[features][install_path] = sites/all
+projects[context][subdir] = contrib
+projects[context][install_path] = sites/all
 
+; Development related modules
 projects[devel][subdir] = developer
 projects[devel][install_path] = sites/all
 projects[coder][subdir] = developer

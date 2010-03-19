@@ -62,6 +62,8 @@ function essential_profile_modules() {
 		'transliteration',
 		'poormanscron',
 
+    // 404 Blocks
+    'blocks404',
     // Pathauto
     'pathauto',
     // Advanced help
