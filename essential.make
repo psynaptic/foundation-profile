@@ -24,7 +24,7 @@ projects[rubik][download][url] = "git://github.com/developmentseed/rubik.git"
 ; Administration
 ; Note: admin_menu v3 removes blocks from the /admin path.
 projects[admin][subdir] = contrib
-projects[admin][version] = 6.x-2.0-beta2
+; projects[admin][version] = 6.x-2.0-beta2
 projects[admin_menu][subdir] = contrib
 projects[admin_menu][install_path] = sites/all
 projects[adminrole][subdir] = contrib
