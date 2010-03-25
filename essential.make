@@ -1,6 +1,7 @@
 ; Syntax: http://bit.ly/7rp6vM
 
 ; Essential site building starting kit.
+core = 6.x
 
 ; Themes
 projects[clean][subdir] = contrib
