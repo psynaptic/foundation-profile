@@ -19,6 +19,10 @@ projects[rubik][type] = "theme"
 projects[rubik][download][type] = "git"
 projects[rubik][download][url] = "git://github.com/developmentseed/rubik.git"
 
+; Custom features
+projects[essential][download][type] = "git"
+projects[essential][download][url] = "git://dev.freestylesystems.co.uk:essential"
+
 ; Modules
 
 ; Administration
