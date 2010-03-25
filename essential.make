@@ -2,8 +2,6 @@
 
 ; Essential site building starting kit.
 
-core = 6.x
-
 ; Themes
 projects[clean][subdir] = contrib
 projects[clean][install_path] = sites/all
