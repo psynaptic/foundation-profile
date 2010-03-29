@@ -28,7 +28,7 @@ projects[essential][download][url] = "git://dev.freestylesystems.co.uk/essential
 
 ; Administration
 ; Note: admin_menu v3 removes blocks from the /admin path.
-projects[admin][subdir] = contrib
+; projects[admin][subdir] = contrib
 ; projects[admin][version] = 6.x-2.0-beta2
 projects[admin_menu][subdir] = contrib
 projects[admin_menu][install_path] = sites/all
@@ -100,3 +100,4 @@ projects[install_profile_api][subdir] = developer
 projects[install_profile_api][install_path] = sites/all
 projects[cvs_deploy][subdir] = developer
 projects[cvs_deploy][install_path] = sites/all
+
