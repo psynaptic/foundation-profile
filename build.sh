@@ -22,7 +22,10 @@ OUTPUT="$NAME.profile"
 
 # Creating a backup
 cp $INPUT $INPUT.old
-sed -i -r s/NAME/$NAME/ $INPUT
+# TODO the replace part is broken
+# sed -i -r s/NAME/$NAME/ $INPUT
+# sed -i -r s/FRIENDLY_NAME/$FRIENDLY_NAME/ $INPUT
+# sed -i -r s/DESCRIPTION/$DESCRIPTION/ $INPUT
 
 mv $INPUT $OUTPUT
 
