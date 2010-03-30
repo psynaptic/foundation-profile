@@ -3,7 +3,8 @@
  * @file
  * Install and configure an essential starting point for site building.
  * By Richard Burford (freestylesystems.co.uk) and Balazs Dianiska (longlake.co.uk).
- * Profile should use the essential.make makefile, stored with this profile.
+ * Use the build.sh to fill up the custom values for the active projects and prepare
+ * for installation.
  * Features:
  * - essential modules for sitebuilding
  * - page content type
@@ -21,7 +22,7 @@
 /**
  * Modules the profile will install itself.
  */
-function essential_profile_modules() {
+function NAME_profile_modules() {
 	return array(
 		// Core modules.
 		'block', 'dblog', 'filter', 'node', 'taxonomy', 'menu', 'system', 'user', 'path',
@@ -86,7 +87,7 @@ function essential_profile_modules() {
 /**
  * Modules required specifically for the project and features.
  */
-function _essential_secondary_modules() {
+function _NAME_secondary_modules() {
 	return array(
     // The essential feature.
     'essential',
@@ -94,23 +95,23 @@ function _essential_secondary_modules() {
 	);
 }
 
-function essential_profile_details() {
+function NAME_profile_details() {
 	return array(
-		'name' => 'Essential',
-		'description' => 'Essential layout installer.'
+		'name' => 'FRIENDLY_NAME',
+		'description' => 'DESCRTIPION',
 	);
 }
 
 function system_form_install_select_profile_form_alter(&$form, $form_state) {
 	foreach($form['profile'] as $key => $element) {
-		$form['profile'][$key]['#value'] = 'essential';
+		$form['profile'][$key]['#value'] = 'NAME';
 	}
 }
 
 function system_form_install_configure_form_alter(&$form, $form_state) {
   $form['site_information']['#collapsible'] = TRUE;
  	$form['site_information']['#collapsed'] = TRUE;
- 	$form['site_information']['site_name']['#default_value'] = 'Essential'; // TODO change this depending on project
+ 	$form['site_information']['site_name']['#default_value'] = 'FRIENDLY_NAME';
  	$form['site_information']['site_mail']['#default_value'] = 'admin@'. $_SERVER['HTTP_HOST'];
   // Collapse the fieldset so we don't need to scroll to the submit button.
  	$form['admin_account']['#collapsible'] = TRUE;
@@ -127,17 +128,17 @@ function system_form_install_configure_form_alter(&$form, $form_state) {
 
 
 // "Inspired" by open atrium.
-function essential_profile_tasks(&$task, $url) {
+function NAME_profile_tasks(&$task, $url) {
   // Install profile api requires including the list of modules we install.
-  install_include(essential_profile_modules()); 
+  install_include(NAME_profile_modules()); 
 	$output = '';
 	// We are running a batch task for this profile so basically do nothing and return page
-	if (in_array($task, array('essential-modules-batch', 'essential-configure-batch'))) {
+	if (in_array($task, array('NAME-modules-batch', 'NAME-configure-batch'))) {
 		include_once 'includes/batch.inc';
 	  $output = _batch_page();
 	}
 	
-	$modules = _essential_secondary_modules();
+	$modules = _NAME_secondary_modules();
 	$files = module_rebuild_cache();
 	
 	if ('profile' == $task) {
@@ -146,12 +147,12 @@ function essential_profile_tasks(&$task, $url) {
 		}
 
 	 	$batch['title'] = st('Installing @drupal', array('@drupal' => drupal_install_profile_name()));
-		$batch['finished'] = '_essential_module_batch_finished';
+		$batch['finished'] = '_NAME_module_batch_finished';
 	 	$batch['error_message'] = st('The installation has encountered an error.');
 	 	
-	 	// Start a batch, switch to 'essential-modules-batch' task. We need to
+	 	// Start a batch, switch to 'NAME-modules-batch' task. We need to
 	 	// set the variable here, because batch_process() redirects.
-	 	variable_set('install_task', 'essential-modules-batch');
+	 	variable_set('install_task', 'NAME-modules-batch');
 	 	batch_set($batch);
 	 	batch_process($url, $url);
 	 	// Jut for cli installs. We'll never reach here on interactive installs.
@@ -160,9 +161,9 @@ function essential_profile_tasks(&$task, $url) {
 	
 	if ('profile-configure' == $task) {
 	 	$batch['title'] = st('Configuring @drupal', array('@drupal' => drupal_install_profile_name()));
- 		$batch['operations'][] = array('_essential_configure', array());
-	 	$batch['finished'] = '_essential_configure_finished';
-	 	variable_set('install_task', 'essential-configure-batch');
+ 		$batch['operations'][] = array('_NAME_configure', array());
+	 	$batch['finished'] = '_NAME_configure_finished';
+	 	variable_set('install_task', 'NAME-configure-batch');
 	 	batch_set($batch);
 	 	batch_process($url, $url);
 	 	// Jut for cli installs. We'll never reach here on interactive installs.
@@ -178,14 +179,14 @@ function essential_profile_tasks(&$task, $url) {
 /**
  * Move on to the configuration stage by setting the task.
  */
-function _essential_module_batch_finished($success, $results) {
+function _NAME_module_batch_finished($success, $results) {
 	variable_set('install_task', 'profile-configure');
 }
 
 /**
  * First stage configuration, eg to create a taxonomy.
  */
-function _essential_configure() {
+function _NAME_configure() {
   // Making sure that we have full error reporting, log and on screen.
   variable_set('error_level', '1');
   
@@ -224,7 +225,7 @@ function _essential_configure() {
   
   // Default site status and offline message.
   variable_set('site_offline', '0');
-  variable_set('site_offline_message', 'Essential is currently under maintenance. We should be back shortly. Thank you for your patience.');
+  variable_set('site_offline_message', 'The FRIENDLY_NAME website is currently under maintenance. We should be back shortly. Thank you for your patience.');
   
   // Add both user groups the permission to access content.
   install_add_permissions(1, array('access_content'));
@@ -261,7 +262,7 @@ function _essential_configure() {
 /**
  * Final stage of the configuration.
  */
-function _essential_configure_finished($success, $results) {
+function _NAME_configure_finished($success, $results) {
   variable_set('install_task', 'profile-finished');
 }
 
@@ -274,7 +275,7 @@ function _essential_configure_finished($success, $results) {
  */
 function _openatrium_system_theme_data() {
   global $profile;
-  $profile = 'essential';
+  $profile = 'NAME';
 
   $themes = drupal_system_listing('\.info$', 'themes');
   $engines = drupal_system_listing('\.engine$', 'themes/engines');
