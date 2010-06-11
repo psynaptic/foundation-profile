@@ -14,3 +14,4 @@ Getting started:
 5. Run: cd site_name && prepare
 
 6. Open your browser and install the site
+
