@@ -3,10 +3,14 @@ commonly used building blocks and configurations as possible to jump-start a pro
 
 Getting started:
 
-1. Run: git clone git@dev.freestylesystems.co.uk:foundation
+1. Set up vhost
 
-2. Run: drush make foundation/foundation-local.make site_name
+2. Run: git clone git@dev.freestylesystems.co.uk:foundation
 
-3. Create a database
+3. Run: drush make foundation/foundation-local.make site_name
 
-3. Open your browser and install the site
+4. Run: sql create site_name
+
+5. Run: cd site_name && prepare
+
+6. Open your browser and install the site
