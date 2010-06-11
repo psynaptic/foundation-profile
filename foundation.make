@@ -9,15 +9,7 @@ projects[clean][install_path] = sites/all
 projects[clean_starter][type] = "theme"
 projects[clean_starter][install_path] = sites/all
 projects[clean_starter][download][type] = "git"
-projects[clean_starter][download][url] = "git://89.145.97.251/clean_starter"
-
-; Admin themes
-projects[tao][type] = "theme"
-projects[tao][download][type] = "git"
-projects[tao][download][url] = "git://github.com/developmentseed/tao.git"
-projects[rubik][type] = "theme"
-projects[rubik][download][type] = "git"
-projects[rubik][download][url] = "git://github.com/developmentseed/rubik.git"
+projects[clean_starter][download][url] = "git@dev.freestylesystems.co.uk:clean_starter"
 
 ; Custom features
 ; projects[essential][subdir] = features

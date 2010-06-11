@@ -12,4 +12,4 @@ projects[] = drupal
 ; Profile
 projects[essential][type] = "profile"
 projects[essential][download][type] = "git"
-projects[essential][download][url] = "git@longlake.co.uk:essential"
+projects[essential][download][url] = "git@freestylesystems.co.uk:foundation"
