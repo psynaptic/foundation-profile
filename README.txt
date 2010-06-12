@@ -7,11 +7,10 @@ Getting started:
 
 2. Run: git clone git@dev.freestylesystems.co.uk:foundation
 
-3. Run: drush make foundation/foundation-local.make site_name
+3. Run: drush make foundation/foundation.make site_name
 
 4. Run: sql create site_name
 
 5. Run: cd site_name && prepare
 
 6. Open your browser and install the site
-
