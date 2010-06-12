@@ -2,7 +2,6 @@
 
 core = "6.x"
 
-; Uncomment the following line if you want to use vanilla core.
 projects[] = drupal
 ;projects[pressflow][type] = "core"
 ;projects[pressflow][download][type] = "git"
