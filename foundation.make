@@ -3,6 +3,16 @@
 ; Essential site building starting kit.
 core = 6.x
 
+projects[] = drupal
+;projects[pressflow][type] = "core"
+;projects[pressflow][download][type] = "git"
+;projects[pressflow][download][url] = git://github.com/bigmack83/pressflow-6.git
+
+; Profile
+projects[foundation][type] = "profile"
+projects[foundation][download][type] = "git"
+projects[foundation][download][url] = "git@dev.freestylesystems.co.uk:foundation"
+
 ; Themes
 projects[clean][subdir] = contrib
 projects[clean][install_path] = sites/all
