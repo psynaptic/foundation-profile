@@ -12,6 +12,7 @@ projects[] = drupal
 projects[foundation][type] = "profile"
 projects[foundation][download][type] = "git"
 projects[foundation][download][url] = "git@dev.freestylesystems.co.uk:foundation"
+projects[foundation][download][branch] = "profile-d6"
 
 ; Themes
 projects[clean][subdir] = contrib
