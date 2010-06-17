@@ -83,6 +83,8 @@ projects[poormanscron][subdir] = contrib
 projects[poormanscron][install_path] = sites/all
 projects[vertical_tabs][subdir] = contrib
 projects[vertical_tabs][install_path] = sites/all
+projects[markdown][subdir] = contrib
+projects[markdown][install_path] = sites/all
 
 ; API modules
 projects[ctools][subdir] = contrib
