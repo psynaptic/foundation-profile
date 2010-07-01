@@ -38,7 +38,7 @@ projects[admin_menu][install_path] = sites/all
 projects[adminrole][subdir] = contrib
 projects[adminrole][install_path] = sites/all
 
-; Content
+; CCK
 projects[cck][subdir] = contrib
 projects[cck][install_path] = sites/all
 projects[filefield][subdir] = contrib
@@ -55,6 +55,8 @@ projects[link][subdir] = contrib
 projects[link][install_path] = sites/all
 projects[email][subdir] = contrib
 projects[email][install_path] = sites/all
+
+; Other content
 projects[node_clone][subdir] = contrib
 projects[node_clone][install_path] = sites/all
 projects[node_export][subdir] = contrib
@@ -67,6 +69,8 @@ projects[boxes][subdir] = contrib
 projects[boxes][install_path] = sites/all
 projects[views][subdir] = contrib
 projects[views][install_path] = sites/all
+projects[invisimail][subdir] = contrib
+projects[invisimail][install_path] = sites/all
 
 ; Functional modules (improving usability, SEO etc)
 projects[advanced_help][subdir] = contrib
