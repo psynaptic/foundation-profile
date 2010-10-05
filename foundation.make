@@ -63,6 +63,7 @@ projects[node_export][subdir] = contrib
 projects[node_export][install_path] = sites/all
 projects[flag][subdir] = contrib
 projects[flag][install_path] = sites/all
+projects[flag][version] = 6.x-2.0-beta3
 projects[webform][subdir] = contrib
 projects[webform][install_path] = sites/all
 projects[panels][subdir] = contrib
