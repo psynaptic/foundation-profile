@@ -1,6 +1,9 @@
 ; Syntax: http://bit.ly/7rp6vM
 
 ; Essential site building starting kit.
+; Drush Make API version
+api = 2
+; We are working with Drupal 6
 core = 6.x
 
 projects[] = drupal
