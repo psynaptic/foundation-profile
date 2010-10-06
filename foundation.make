@@ -92,6 +92,12 @@ projects[poormanscron][subdir] = contrib
 projects[poormanscron][install_path] = sites/all
 projects[vertical_tabs][subdir] = contrib
 projects[vertical_tabs][install_path] = sites/all
+projects[fancy_contacts][subdir] = contrib
+projects[fancy_contacts][install_path] = sites/all
+projects[vt_default][subdir] = contrib
+projects[vt_default][install_path] = sites/all
+projects[filter_protocols][subdir] = contrib
+projects[filter_protocols][install_path] = contrib
 projects[markdown][subdir] = contrib
 projects[markdown][install_path] = sites/all
 
