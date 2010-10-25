@@ -121,3 +121,6 @@ projects[install_profile_api][install_path] = sites/all
 projects[cvs_deploy][subdir] = developer
 projects[cvs_deploy][install_path] = sites/all
 
+; Performance modules
+projects[views_content_cache][subdir] = contrib/performance
+projects[views_content_cache][install_path] = sites/all
