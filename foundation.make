@@ -14,7 +14,7 @@ projects[] = drupal
 ; Profile
 projects[foundation][type] = "profile"
 projects[foundation][download][type] = "git"
-projects[foundation][download][url] = "git@dev.freestylesystems.co.uk:foundation"
+projects[foundation][download][url] = "git@github.com:psynaptic/foundation-profile.git"
 projects[foundation][download][branch] = "profile-d6"
 
 ; Themes
@@ -23,12 +23,12 @@ projects[clean][install_path] = sites/all
 projects[clean_starter][type] = "theme"
 projects[clean_starter][install_path] = sites/all
 projects[clean_starter][download][type] = "git"
-projects[clean_starter][download][url] = "git@dev.freestylesystems.co.uk:clean_starter"
+projects[clean_starter][download][url] = "git@github.com:psynaptic/clean_starter.git"
 
 ; Custom features
 ; projects[essential][subdir] = features
 ; projects[essential][download][type] = "git"
-; projects[essential][download][url] = "git@dev.freestylesystems.co.uk:essential"
+; projects[essential][download][url] = "git@github.com:psynaptic/feature-essential.git"
 
 ; Modules
 

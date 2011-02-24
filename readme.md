@@ -1,3 +1,5 @@
+# Foundation
+
 Foundation profile is a starter kit for building custom sites. It tries to
 incorporate as many commonly used building blocks and configurations as
 possible to jump-start a project.
